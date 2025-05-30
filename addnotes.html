@@ -1,0 +1,471 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=poppins:wght@400;500;600;700&display=swap";
+    <link href="https://unicons.iconscout.com/release-pro/v4.">
+
+   <style>
+    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    background: maroon;
+}
+
+.wrapper {
+    margin: 50px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, 250px);
+}
+
+.wrapper li {
+    height: 250px;
+    list-style: none;
+    background: white;
+    border-radius: 5px;
+    padding: 15px 20px 20px
+}
+
+.wrapper .note {
+    display: flex;
+    ;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.add-box,
+.icon,
+.bottom-content,
+.settings .menu li,
+.content header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bottom-content span {
+    font-size: 14px;
+}
+
+.add-box {
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.add-box .icon {
+    height: 78px;
+    width: 78px;
+    color: rgb(252, 43, 78);
+    font-size: 40px;
+    border-radius: 50%;
+    justify-content: center;
+    border: 2px dashed rgb(100, 21, 34)
+}
+
+.note .details {
+    max-height: 165px;
+    overflow-y: auto;
+}
+
+.note p {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.note span {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.note .bottom-content {
+    padding-top: 10px;
+    border-top: 1px solid rgb(231, 129, 129);
+}
+
+.bottom-content span {
+    color: rgb(247, 108, 108);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.bottom-content .settings i {
+    cursor: pointer;
+}
+
+.settings {
+    position: relative;
+
+}
+
+.settings .menu {
+    border-radius: 4px;
+    position: absolute;
+    bottom: 0;
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: transform 0.2s ease;
+    right: -5px;
+    padding: 5px 0;
+    background-color: white;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.settings.show .menu {
+
+    transform: scale(1);
+}
+
+.settings .menu li {
+    height: 25px;
+    cursor: pointer;
+    padding: 17px 15px;
+    border-radius: 0;
+    justify-content: flex-start;
+}
+
+.menu li:hover {
+    background: #f5f5f5;
+}
+
+.menu li i {
+    padding-right: 8px;
+}
+
+.popup-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.popup-box,
+.popup-box .popup {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+}
+
+.popup-box.show,
+.popup-box.show .popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-box .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    max-width: 400px;
+    width: 100%;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+}
+
+.popup .content {
+    border-radius: 5px;
+    background: #fff;
+}
+
+.popup .content header {
+    padding: 15px 25px;
+    border-bottom: 1px solid #ccc;
+}
+
+.content header i {
+    color: rgb(150, 34, 53);
+    cursor: pointer;
+}
+
+.content form {
+    margin: 15px 25px 35px;
+
+}
+
+.content form :where(input, textarea) {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    border-radius: 4px;
+    border: #ccc 1px solid;
+}
+
+.content form .row {
+    margin-bottom: 20px;
+}
+
+.content form textarea {
+    height: 150px;
+    resize: none;
+}
+
+.content form button {
+    width: 100%;
+    height: 50px;
+    background-color: pink;
+    cursor: pointer;
+    color: #000000;
+    margin: 5;
+    border-radius: 4px;
+}
+
+form .row label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+form textarea {
+    height: 150px;
+    resize: none;
+}
+.navbar {
+    background-color: #800000; /* Maroon */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Navbar Actions */
+.navbar .actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adds space between bell and message */
+    position: relative;
+}
+
+.navbar .actions i {
+    font-size: 24px;
+    position: relative;
+    cursor: pointer;
+    color: white;
+}
+
+/* Notification Badge */
+.navbar .actions .notification-badge {
+    position: absolute;
+    top: -5px; /* Adjusts position relative to icon */
+    right: -10px; /* Moves to the top-right corner */
+    background-color: red; /* Red notification circle */
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navbar .actions .message-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #fff; /* White notification circle */
+    color: #800000; /* Maroon text for the count */
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Hover Effects */
+.navbar .actions i:hover {
+    color: #ffd7d9; /* Light pink on hover */
+}
+   </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <span class="menu-toggle"><i class="fas fa-bars"></i></span>
+        <h1><i class="fas fa-school"></i>AddNotes</h1>
+        <div class="actions">
+            <!-- Notification Bell -->
+            <i class="fas fa-bell">
+                <span class="notification-badge">3</span> <!-- Add badge -->
+            </i>
+            <!-- Message Icon -->
+            <i class="fas fa-envelope">
+                <span class="message-badge">1</span> <!-- Add badge -->
+            </i>
+        </div>
+    </div>
+    
+    <div class="popup-box">
+        <div class="popup show">
+            <div class="content">
+                <header>
+                    <p>Add a new note</p>
+                    <i class="fas fa-times"></i>
+                </header>
+                <form action="#">
+                    <div class="row tile">
+                        <label>Title</label>
+                        <input type="text" id="input">
+                    </div>
+                    <div class="row description">
+                        <label for="">Description</label>
+                       <textarea name="" id=""></textarea>
+                    </div>
+                    <button class="add-note">Add Note</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <li class="add-box">
+            <div class="icon"><i class="fas fa-plus"></i></div>
+            <p>Add new note</p>
+        </li>
+
+        <li class="note">
+            <div class="details">
+                <p>This is a Title</p>
+                <span></span>
+            </div>
+        </li>
+    </div>
+
+    <script>
+        let isUpdate = false;
+        let UpdateId = null;
+        const addBox = document.querySelector(".add-box");
+        const popUpBox = document.querySelector(".popup-box");
+        const closeIcon = document.querySelector("header i");
+        const titleTag = document.querySelector("input");
+        const descTag = document.querySelector("textarea");
+        const addBtn = popUpBox.querySelector("button");
+        const popupTitle = document.querySelector("header p");
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+
+        addBox.addEventListener("click", function() {
+            titleTag.focus();
+            popUpBox.classList.add("show");
+        });
+
+        closeIcon.addEventListener("click", () => {
+            popUpBox.classList.remove("show");
+            if (!isUpdate) {
+                titleTag.value = "";
+                descTag.value = "";
+            }
+        });
+
+        addBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            let noteTitle = titleTag.value,
+                noteDesc = descTag.value;
+            if (noteTitle || noteDesc) {
+                let dateObj = new Date(),
+                    month = months[dateObj.getMonth()],
+                    day = dateObj.getDate(),
+                    year = dateObj.getFullYear();
+
+                let noteInfo = {
+                    title: noteTitle,
+                    description: noteDesc,
+                    date: `${month} ${day} ${year}`
+                };
+
+                if (!isUpdate) {
+                    notes.push(noteInfo);
+                } else {
+                    isUpdate = false;
+                    notes[UpdateId] = noteInfo;
+                }
+                localStorage.setItem("notes", JSON.stringify(notes));
+                closeIcon.click();
+                showNotes();
+            }
+        });
+
+        function showNotes() {
+            document.querySelectorAll(".note").forEach(note => note.remove());
+            notes.forEach((note, index) => {
+                let liTag = `<li class="note">
+                    <div class="details">
+                        <p>${note.title}</p>
+                        <span>${note.description}</span>
+                    </div>
+                    <div class="bottom-content">
+                        <span>${note.date}</span>
+                        <div class="settings">
+                            <i onclick="showMenu(this)" class="fas fa-ellipsis-h"></i>
+                            <ul class="menu">
+                                <li onclick="updateNote(${index}, '${note.title}', '${note.description}')"><i class="fas fa-pen"></i>Edit</li>
+                                <li onclick="deleteNote(${index})"><i class="fas fa-trash-alt"></i>Delete</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>`;
+                addBox.insertAdjacentHTML("afterend", liTag);
+            });
+        }
+
+        function showMenu(elem) {
+            elem.parentElement.classList.add("show");
+            document.addEventListener("click", e => {
+                if (e.target.tagName != "I" || e.target != elem) {
+                    elem.parentElement.classList.remove("show");
+                }
+            });
+        }
+
+        function deleteNote(noteId) {
+            let confirmDel = confirm("Are you sure you want to delete this item?");
+            if (!confirmDel) return;
+
+            notes.splice(noteId, 1);
+            localStorage.setItem("notes", JSON.stringify(notes));
+            showNotes();
+        }
+
+        function updateNote(noteId, title, desc) {
+            isUpdate = true;
+            UpdateId = noteId;
+            addBox.click();
+            titleTag.value = title;
+            descTag.value = desc;
+            addBtn.innerText = "Update Note";
+            popupTitle.innerText = "Update a Note";
+        }
+
+        showNotes();
+    </script>
+</body>
+
+</script>
+</body>
+</html>

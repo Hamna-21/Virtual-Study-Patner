@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | Study Partner</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #800000; /* Maroon background */
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #5B0000; /* Darker maroon for navbar */
+            color: #f1f1f1;
+        }
+
+        .navbar a {
+            margin: 0 15px;
+            color: #f1f1f1;
+            font-weight: 500;
+        }
+
+        .navbar a:hover {
+            color: #00FFFF; /* Light cyan hover effect */
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .courses h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f1f1f1;
+        }
+
+        .courses p {
+            color: #cccccc;
+            margin-bottom: 40px;
+        }
+
+        /* Course Cards */
+        .course-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .course-item {
+            width: 280px;
+            background: #660000; /* Slightly lighter maroon for course boxes */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .course-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .course-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: #888880; /* Light cyan for course headings */
+        }
+
+        .course-item p {
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+
+        .course-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #f8f8f4; /* Light cyan for icons */
+        }
+
+        .enroll-btn {
+    background-color: #FF6347; /* Tomato red button */
+    color: #ffffff; /* White text */
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.enroll-btn:hover {
+    background-color: #FF4500; /* Darker orange-red for hover effect */
+}
+
+        /* Footer */
+        .footer {
+            background: #5B0000;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">Study Partner</div>
+        <nav class="nav-links">
+            <a href="Virtualstudy.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="courses.html">Courses</a>
+            <a href="Login.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- Courses Section -->
+    <section class="courses">
+        <h2>Our Courses</h2>
+        <p>Explore a wide range of courses designed to help you excel in your studies. We offer courses in mathematics, science, programming, humanities, and more!</p>
+        <div class="course-grid">
+            <!-- Mathematics Courses -->
+            <div class="course-item">
+                <i class="fas fa-calculator"></i>
+                <h3>Math for Beginners</h3>
+                <p>Learn the fundamentals of mathematics with step-by-step tutorials.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-calculator"></i>
+                <h3>Advanced Algebra</h3>
+                <p>Master algebraic expressions, equations, and advanced techniques.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-calculator"></i>
+                <h3>Calculus Basics</h3>
+                <p>Understand the principles of derivatives and integrals with ease.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+
+            <!-- Programming Courses -->
+            <div class="course-item">
+                <i class="fas fa-code"></i>
+                <h3>Introduction to Programming</h3>
+                <p>Get started with programming concepts and languages like Python and Java.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-code"></i>
+                <h3>Data Structures in C++</h3>
+                <p>Understand key data structures like arrays, linked lists, and trees in C++.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-code"></i>
+                <h3>Web Development</h3>
+                <p>Learn HTML, CSS, and JavaScript to build interactive websites.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+
+            <!-- Science Courses -->
+            <div class="course-item">
+                <i class="fas fa-flask"></i>
+                <h3>Physics 101</h3>
+                <p>Explore the basics of classical mechanics, electricity, and magnetism.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-flask"></i>
+                <h3>Chemistry for Beginners</h3>
+                <p>Understand the fundamentals of chemistry, from atoms to chemical reactions.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-flask"></i>
+                <h3>Biology Essentials</h3>
+                <p>Learn about cells, genetics, evolution, and ecosystems in this biology course.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+
+            <!-- Humanities & Social Sciences Courses -->
+            <div class="course-item">
+                <i class="fas fa-users"></i>
+                <h3>Introduction to Psychology</h3>
+                <p>Learn the basics of human behavior, cognition, and mental processes.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-users"></i>
+                <h3>History of Civilization</h3>
+                <p>Explore the rise and fall of civilizations and their cultural impact.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-users"></i>
+                <h3>Sociology 101</h3>
+                <p>Understand the structure of societies and human social behavior.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+
+            <!-- Business & Marketing Courses -->
+            <div class="course-item">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Digital Marketing</h3>
+                <p>Learn how to market products and services through digital channels.</p>
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Introduction to Economics</h3>
+                <p>Understand the fundamental concepts of microeconomics and macroeconomics.</p>
+                
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Entrepreneurship 101</h3>
+                <p>Learn how to start and grow your own business successfully.</p>
+                
+                <a href="login.html" class="enroll-btn">Enroll Now</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Study Partner. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+   
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <span class="menu-toggle"><i class="fas fa-bars"></i></span>
+        <h1><i class="fas fa-school"></i> Study Dashboard</h1>
+        <div class="actions">
+            <!-- Notification Bell -->
+            <i class="fas fa-bell">
+                <span class="notification-badge">3</span> <!-- Add badge -->
+            </i>
+            <!-- Message Icon -->
+            <i class="fas fa-envelope">
+                <span class="message-badge">1</span> <!-- Add badge -->
+            </i>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Start left -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <h2>M<span class="danger">enu</span></h2>
+                </div>
+                <div class="close">
+                    <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+            <!-- End top -->
+            <div class="sidebar">
+                <a href="StudentDashboard.html">
+                    <span class="material-symbols-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                </a>
+                <a href="createFlashcards.html">
+                    <span class="material-symbols-sharp">cards_star</span>
+                    <h3>FlashCards</h3>
+                </a>
+                <a href="addnotes.html">
+                    <span class="material-symbols-sharp">edit_document</span>
+                    <h3>Add Notes</h3>
+                </a>
+                <a href="StudyShedule.html">
+                    <span class="material-symbols-sharp">calendar_month</span>
+                    <h3>Study Schedule</h3>
+                </a>
+                <a href="AiAssistance.html">
+                    <span class="material-symbols-sharp">smart_toy</span>
+                    <h3>AI Assistant</h3>
+                </a>
+                <a href="HelpRequest.html">
+                    <span class="material-symbols-sharp">help</span>
+                    <h3>Help Requests</h3>
+                </a>
+                </a>
+                <a href="ResourcesM.html">
+                    <span class="material-symbols-sharp">book</span>
+                    <h3>Resources</h3>
+                </a>
+              
+                <a href="Settings.html">
+                    <span class="material-symbols-sharp">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="Login.html">
+                    <span class="material-symbols-sharp">logout</span>
+                    <h3>Logout</h3>
+                     
+            </a>
+            </div>
+            
+        </aside>
+        <!-- End left -->
+        <!-- Start Main -->
+        <main>
+            <h2> 💌Welcome
+            </br></br>🕘The best revenge is massive success❗.</br></h2>
+            <div class="date">
+                <input type="date" id="date-picker">
+                <div class="insights">
+                    <div class="main-left">
+                        <div class="ProgressTracker">
+                            <div class="middle">
+                                <div class="left">
+                                    <h1>
+                                        <video autoplay muted loop class="video-icon">
+                                            <source src="3598030575-preview.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        Milestone Achievement Tracker
+                                    </h1>
+                                </div>
+                                <div class="progress">
+                                    <svg width="150" height="150">
+                                    
+                                        <!-- Progress circle -->
+                                        <circle class="progress-circle" cx="70" cy="70" r="70"></circle>
+                                    </svg>
+                                    <div class="number">
+                                        <h3>
+                                            <img src="https://img.icons8.com/?size=50&id=yCFEu4wgksgu&format=png" alt="Work">
+                                           45% Progress requires persistence
+                                        </h3>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <h3><img src="https://img.icons8.com/?size=80&id=Fb1jL0IyJuaQ&format=png"><b> Last 24 Hours</b></h3>
+                    </div>
+                    <!-- End of progress tracker -->
+                    <!-- Start of To-Do List -->
+                    <div class="main-right">
+                        <form action="" class="todo-form">
+                            <h1>
+                                <video autoplay muted loop class="video-icon">
+                                    <source src="3571917087-preview.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                 StudyGoals
+                            </h1>
+                            <input type="text" class="todo-input" placeholder="Enter your task">
+                            <button class="todo-button" type="submit">
+                                <i class="fas fa-plus-circle fa-lg"></i>
+                            </button>
+                            <select name="todos" class="filter-todo">
+                                <option value="all">All</option>
+                                <option value="completed">Completed</option>
+                                <option value="incomplete">Incomplete</option>
+                            </select>
+                        </form>
+                        <div class="todo-container">
+                            <ul class="todo-list"></ul>
+                            <script src="./script.js"></script>
+                        </div>
+                    </div>
+                    <!-- End of To-Do List -->
+                </div>
+               <!-- Study Goals Section -->
+<div class="study-goals">
+   
+
+    <!-- Upcoming Quizzes Section -->
+    <div class="section quizzes">
+        <h2><video autoplay muted loop class="video-icon">
+            <source src="1091228133-preview.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+         Upcoming Quizzes</h2>
+        <ul id="quiz-list"></ul>
+        <input type="text" id="quiz-input" placeholder="Add a quiz">
+        <button onclick="addQuiz()">Add Quiz</button>
+      
+        
+    </div>
+
+    <!-- Upcoming Assignments Section -->
+    <div class=" assignments">
+        <h2><video autoplay muted loop class="video-icon">
+            <source src="3548929211-preview.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>Upcoming Assignments</h2>
+        <ul id="assignment-list"></ul>
+        <input type="text" id="assignment-input" placeholder="Add an assignment">
+        <button onclick="addAssignment()">Add Assignment</button>
+        <div class="section assignments">
+            <h2><video autoplay muted loop class="video-icon">
+                <source src="3548929211-preview.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video> Assignments</h2>
+            <ul id="assignment-a"></ul>
+        </div>
+        <div class="upload-assignments">
+            <a href="Filesupload.html">
+                <button class="uploadbutton">
+                    Upload Assignments
+                </button>
+            </a>
+        </div>
+    
+    </div>
+   
+    <!-- Others Section -->
+    <div class="section others">
+        <h2><video autoplay muted loop class="video-icon">
+            <source src="3639837527-preview.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>Other Tasks</h2>
+        <ul id="other-list"></ul>
+        <input type="text" id="other-input" placeholder="Add a task">
+        <button onclick="addOther()">Add Task</button>
+    </div>
+</div>
+ 
+            </div>
+        </main>
+        
+        <!-- End main -->
+        <!-- Start right -->
+        <div class="right">
+            <div class="user-profile">
+                <div class="profile-header">
+                    <img id="profile-picture" src="https://tse4.mm.bing.net/th?id=OIP.IH4pPgI_RKK68QpDHg1mDgHaHa&pid=Api&P=0&h=220" alt="User Profile Picture">
+                    <h2 id="user-name">Fatima Jinnah</h2>
+                </div>
+                <div class="profile-details">
+                    <p><strong>Level:</strong> <span id="education-level">Beginner</span></p>
+                    <p><strong>Rank:</strong> <span id="rank">5</span></p>
+                    <p><strong>Live Location:</strong> <span id="location">Loading...</span></p>
+                    <p><strong>Bio:</strong> <span id="user-bio">Aspiring software engineer with a passion for technology and learning.</span></p>
+                </div>
+                <button onclick="openProfilePopup()">Update Profile</button>
+            </div>
+        
+            <!-- Profile Update Modal -->
+            <div id="profile-popup-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeProfilePopup()">&times;</span>
+                    <h2>Update Profile</h2>
+                    <label for="location-input">Location:</label>
+                    <input type="text" id="location-input" placeholder="Enter new location">
+                    <label for="bio-input">Bio:</label>
+                    <textarea id="bio-input" placeholder="Enter new bio"></textarea>
+                    <button onclick="updateProfile()">Update</button>
+                </div>
+            </div>
+        
+            <section>
+                <div class="timer-container">
+                    <div class="circle-timer">
+                        <p id="time-display">00:00</p>
+                    </div>
+                    <div class="button-container">
+                        <button id="start" onclick="startTimer()">
+                            <i class="fa fa-play"></i>
+                        </button>
+                        <button id="pause" onclick="pauseTimer()" style="display:none;">
+                            <i class="fa fa-pause"></i>
+                        </button>
+                        <button id="reset" onclick="resetTimer()">
+                            <i class="fa fa-redo"></i>
+                        </button>
+                    </div>
+                </div>
+                <h1>Personal Timer</h1>
+        
+                <!-- Timer Modal -->
+                <div id="timer-popup-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-btn" onclick="closeTimerPopup()">&times;</span>
+                        <h2>Set Timer</h2>
+                        <label for="minutes">Minutes:</label>
+                        <input type="number" id="minutes" min="1" placeholder="Enter minutes">
+                        <button class="set-timer-btn" onclick="setTimer()">Set Timer</button>
+                    </div>
+                </div>
+            </section>
+    <script src="script.js"></script>
+</div>
+
+</body>
+</html>

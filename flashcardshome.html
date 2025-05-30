@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp&display=swap" rel="stylesheet">
+ 
+    <title>Flashcards - Home</title>
+</head>
+<style>
+    /*Home page starts here*/
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    background-color: #3B0B0B; /* Dark maroon */
+    font-weight: 700;
+    z-index: 1;
+    height: 100vh;
+}
+
+h1 {
+    margin-top: 48px;
+    font-size: 36px;
+    color: #F8E0E0; /* Light maroon tint */
+}
+
+#studySets {
+    width: 100%;
+    margin: 96px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-self: center;
+}
+
+#createBtn, .set {
+    font-size: 24px;
+    border-radius: 1rem;
+    text-decoration: none;
+    width: 28%;
+    margin: 5% 2.6%;
+    transition: all 0.5s;
+}
+
+#createBtn {
+    margin-top: 20px;
+    padding: 6rem 2rem;
+    background-color: #800000; /* Deep maroon */
+    border: 1px solid #F5E8E8; /* Light maroon border */
+    color: #F5E8E8; /* Light maroon text */
+    transform: scale(0.95);
+}
+
+.set {
+    color: #F5E8E8; /* Light maroon text */
+    background-color: transparent;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+}
+
+.setHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.setDelete {
+    position: relative;
+    align-self: flex-end;
+    top: 5%;
+    right: 10%;
+    z-index: 2;
+    color: white;
+}
+
+.setEdit {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    top: 5%;
+    left: 10%;
+    z-index: 2;
+}
+
+.setEdit:hover {
+    color: #E0B0B0; /* Light pinkish maroon */
+    cursor: pointer;
+}
+
+.setDelete:hover {
+    color: #B40404; /* Bright maroon */
+    cursor: pointer;
+}
+
+.setLink {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 2rem;
+    margin: 0;
+    margin-top: -15%;
+    border-radius: 1rem;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border: 1px solid #F5E8E8; /* Light maroon border */
+    transition: 0.5s;
+}
+
+.setLink:hover {
+    transform: scale(1.1);
+    color: #800000; /* Deep maroon */
+    border: 2px solid #B40404; /* Vibrant maroon */
+    background-color: #F8E0E0; /* Light maroon background */
+}
+
+#createBtn:hover {
+    transform: scale(1);
+    color: #F8E0E0; /* Light maroon */
+    border: 2px solid #800000; /* Deep maroon */
+    background-color: transparent;
+}
+
+
+
+.navbar {
+    background-color: #800000; /* Maroon */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Navbar Actions */
+.navbar .actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adds space between bell and message */
+    position: relative;
+}
+
+.navbar .actions i {
+    font-size: 24px;
+    position: relative;
+    cursor: pointer;
+    color: white;
+}
+
+/* Notification Badge */
+.navbar .actions .notification-badge {
+    position: absolute;
+    top: -5px; /* Adjusts position relative to icon */
+    right: -10px; /* Moves to the top-right corner */
+    background-color: red; /* Red notification circle */
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navbar .actions .message-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #fff; /* White notification circle */
+    color: #800000; /* Maroon text for the count */
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Hover Effects */
+.navbar .actions i:hover {
+    color: #ffd7d9; /* Light pink on hover */
+}
+.setDelete {
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.setDelete:hover {
+    color: darkred;
+    text-decoration: underline;
+}
+
+
+</style>
+<body>
+    
+    <div class="navbar">
+        <span class="back-toggle" id="back-toggle"><i class="fas fa-arrow-left"></i></span>
+        <h1><i class="fas fa-school"></i> FlashCards</h1>
+        <div class="actions">
+            <!-- Notification Bell -->
+            <i class="fas fa-bell">
+                <span class="notification-badge">3</span>
+            </i>
+            <!-- Message Icon -->
+            <i class="fas fa-envelope">
+                <span class="message-badge">1</span>
+            </i>
+        </div>
+    </div>
+    <h1>Your Study Sets</h1>
+    <div class="container" id = "studySets">
+        <a href="createFlashcards.html" id ="createBtn">Create New Study Set</a>
+
+    </div>
+    <footer>
+        <p>&copy; 2024 Virtual Study App | All Rights Reserved</p>
+        <p>Contact us at: <a href="mailto:support@virtualstudyapp.com">support@virtualstudyapp.com</a></p>
+    </footer>
+    
+   <script>
+    let studySets = document.querySelector("#studySets");
+let createBtn = document.querySelector('#createBtn');
+
+let currentSet = -1;
+//This function will load the sets onto the homepage from local storage.
+function loadHome(){
+    const numOfSets = localStorage.getItem('set#');
+    if(numOfSets > 0){
+        for(let i = 1; i <= numOfSets; i++ ){
+            let setData = JSON.parse(localStorage.getItem(i));
+            let setTitle = setData[0]['title'];
+            let set = document.createElement('div');
+            let setHeader = document.createElement('div');
+            // let setEdit = document.createElement('a');
+            let setDelete = document.createElement('span');
+            let setLink = document.createElement('a');
+            // setEdit.classList.add('setEdit');
+            // setEdit.textContent = 'Edit';
+            // setEdit.addEventListener('click', () => editSetData(i));
+            // setEdit.href = "create.html";
+            setDelete.classList.add('setDelete');
+            setDelete.textContent = "X"
+            setDelete.addEventListener('click', () => deleteSet(i, set));
+            // setHeader.appendChild(setEdit);
+            setHeader.appendChild(document.createElement('span'));
+            setHeader.appendChild(setDelete);
+            setHeader.classList.add('setHeader');
+            setLink.classList.add('setLink');
+            setLink.textContent = setTitle;
+            setLink.href = 'flashcard.html';
+            setLink.addEventListener('click', () => loadSetData(i));
+            set.classList.add('set');
+            set.appendChild(setHeader);
+            set.appendChild(setLink);
+            studySets.removeChild(createBtn);
+            studySets.appendChild(set);
+            studySets.appendChild(createBtn);
+    
+        }
+    }
+}
+
+function deleteSet(setNumber, div){
+    if(currentSet === setNumber){
+        localStorage.removeItem("cards");
+        localStorage.removeItem("currentTitle");
+        currentSet = -1;
+    }
+    studySets.removeChild(div);
+    localStorage.removeItem(setNumber);
+    let numSets = localStorage.getItem("set#");
+    for(let i = 1; i <=  numSets; i++){
+        if(i > setNumber){
+            let oldKey = i;
+            let newKey = i-1;
+            localStorage.setItem(newKey, localStorage.getItem(oldKey));
+            localStorage.removeItem(oldKey);
+            console.log("Set " + oldKey + "is now set" + newKey)
+        }
+    }
+    localStorage.setItem('set#', numSets-=1);
+}
+//Executes when a set is slected from home,loads the terms, definition of the chosen set.
+function loadSetData(setNumber){
+    console.log(setNumber);
+    currentSet = setNumber; 
+    let data = JSON.parse(localStorage.getItem(currentSet));
+    let title = data[0]['title'];
+    let cards = [];
+    for(let i = 1; i < data.length; i++){
+        let term = Object.keys(data[i])[0];
+        let definition = data[i][term];
+        let kvp = {};
+        kvp[term] = definition;
+        cards.push(kvp);
+    }
+    localStorage.setItem('currentTitle', title);
+    localStorage.setItem('cards', JSON.stringify(cards));
+    localStorage.setItem('currentSet', setNumber);
+}
+function deleteSet(setNumber, div) {
+    // If the current set is being deleted, reset its related data
+    if (currentSet === setNumber) {
+        localStorage.removeItem("cards");
+        localStorage.removeItem("currentTitle");
+        currentSet = -1; // Reset currentSet
+    }
+
+    // Remove the set div from the UI
+    studySets.removeChild(div);
+
+    // Delete the set from localStorage
+    localStorage.removeItem(setNumber);
+
+    // Update other sets to maintain sequence
+    let numSets = parseInt(localStorage.getItem("set#")); // Total sets in localStorage
+    for (let i = setNumber + 1; i <= numSets; i++) {
+        let oldKey = i;
+        let newKey = i - 1;
+        let oldData = localStorage.getItem(oldKey);
+
+        if (oldData) {
+            localStorage.setItem(newKey, oldData); // Shift data down
+            localStorage.removeItem(oldKey); // Remove the old key
+        }
+    }
+
+    // Update the total set count
+    numSets -= 1;
+    localStorage.setItem('set#', numSets);
+
+    console.log(`Set ${setNumber} deleted. Total sets: ${numSets}`);
+}
+let setDelete = document.createElement('span');
+setDelete.classList.add('setDelete'); // Add a class for styling
+setDelete.textContent = "X";         // Button text
+setDelete.addEventListener('click', () => deleteSet(i, set)); // Attach event
+
+//main
+loadHome();
+
+
+   </script>
+    
+</body>
+</html>

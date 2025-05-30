@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp&display=swap" rel="stylesheet">
+    <title>Flashcards - Create</title>
+    <style>
+        /*Start here*/
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    background-color: #3B0B0B; /* Dark maroon */
+    font-weight: 700;
+    z-index: 1;
+    height: 100vh;
+}
+h1 {
+    margin-top: 36px;
+    font-size: 36px;
+    color: #F5E8E8; /* Light maroon-tinted white */
+}
+#header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#backImg {
+    margin-right: auto;
+    justify-self: flex-start; 
+    margin-top: 36px;
+    width: 35%;
+}
+#headerText {
+    justify-self: center;
+    color: #F8E0E0; /* Soft maroon tint */
+}
+
+#title {
+    margin-top: 36px;
+    color: #F5E8E8; /* Light maroon */
+}
+
+.card {
+    margin-top: 36px;
+    background-color: #800000; /* Deep maroon */
+    color: #F5E8E8; /* Light text for contrast */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 12px 12px;
+}
+.cardHeader {
+    border-bottom: 1px solid #F5E8E8; /* Light maroon */
+    color: #F8E0E0; /* Slightly lighter text */
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 3px;
+}
+.cardNum {
+    align-self: flex-start;
+    justify-self: flex-start;
+    margin-left: 0%;
+    margin-right: auto;
+}
+.delete {
+    width: 5%;
+    height: 5%;
+    max-width: 21.25px;
+    max-height: 21.25px;
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 0%;
+}
+.card .row {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+
+textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #F5E8E8; /* Light maroon border */
+    word-wrap: break-word;
+    background-color: #5C0A0A; /* Muted maroon */
+    color: #F5E8E8; /* Light text for readability */
+}
+
+#addCard {
+    margin-top: 36px;
+    background-color: #B40404; /* Vibrant maroon */
+    border: 1.5px #F5E8E8 solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 12px 12px;
+    height: 103px;
+    border-radius: 0.25rem;
+    font-size: 1.2rem;
+    transition: 0.5s;
+}
+#createBtn {
+    flex-flow: row;
+    justify-content: flex-end;
+    color: #F5E8E8; /* Light maroon */
+    margin-top: 36px;
+    background-color: #B40404; /* Vibrant maroon */
+    border: 1.5px #F5E8E8 solid;
+    padding: 12px 12px;
+    border-radius: 0.25rem;
+    width: 10rem;
+    transition: 0.5s;
+}
+#addCard:hover, #createBtn:hover {
+    background-color: #F5E8E8; /* Light maroon */
+    border: 1.5px #800000 solid; /* Deep maroon border */
+    color: #800000; /* Deep maroon text */
+    cursor: pointer;
+}
+#createBtn:hover {
+    transform: scale(1.1);
+}
+#createDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+.navbar {
+    background-color: #800000; /* Maroon */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Navbar Actions */
+.navbar .actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adds space between bell and message */
+    position: relative;
+}
+
+.navbar .actions i {
+    font-size: 24px;
+    position: relative;
+    cursor: pointer;
+    color: white;
+}
+
+/* Notification Badge */
+.navbar .actions .notification-badge {
+    position: absolute;
+    top: -5px; /* Adjusts position relative to icon */
+    right: -10px; /* Moves to the top-right corner */
+    background-color: red; /* Red notification circle */
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navbar .actions .message-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #fff; /* White notification circle */
+    color: #800000; /* Maroon text for the count */
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Hover Effects */
+.navbar .actions i:hover {
+    color: #ffd7d9; /* Light pink on hover */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+        
+   
+    <!-- Navbar -->
+    <div class="navbar">
+        <span class="back-toggle" id="back-toggle"><i class="fas fa-arrow-left"></i></span>
+        <h1><i class="fas fa-school"></i> FlashCards</h1>
+        <div class="actions">
+            <!-- Notification Bell -->
+            <i class="fas fa-bell">
+                <span class="notification-badge">3</span>
+            </i>
+            <!-- Message Icon -->
+            <i class="fas fa-envelope">
+                <span class="message-badge">1</span>
+            </i>
+        </div>
+    </div>
+
+    <!-- Search Section -->
+ 
+    <nav id = "header"> 
+        <a href="flashcardshome.html" id = "backA"> <img src="fas fa-home" alt="" id = "backImg"></a>
+        
+        <h1 id = "headerText">Create New Study Set</h1>
+        <div class="right"></div>
+    </nav>
+    <div class="container">
+        <form action= "flashcardshome.html" id = "form">
+            <input type="text" name = "title" class="form-control"  id="title" aria-describedby="titleInput" placeholder="Title" required>  
+        </form>
+        <div id = "addCard">
+            Add New Card+
+        </div>
+        <div id = "createDiv">
+            <button type="submit" id = "createBtn" form = "form">
+                Create
+            </button>
+        </div> 
+    </div>
+
+    <script>const addCardBtn = document.querySelector("#addCard");
+        const createBtn = document.querySelector("#createBtn");
+        const form = document.querySelector("#form");
+        let cards = [];
+        let cardNums = document.getElementsByTagName("span");
+        let definitions = document.getElementsByClassName("definition");
+        let terms = document.getElementsByClassName("term");
+        let title = document.querySelector("#title");
+        let studySets = document.querySelector("#studySets");
+        let headerText = document.querySelector("#headerText");
+        //Update card nums when one is deleted.
+        function updateNums(){
+            if(cards.length > 0){
+                for(let i = 0; i < cards.length; i++){
+                    cardNums[i].textContent = i + 1;
+                    terms[i].name = `term${i}`
+                    definitions[i].name = `def${i}`
+                }
+            }
+        }
+        //Add New Card Function
+        function addCard(){
+            //Define elements
+            const cardHeader = document.createElement("div");
+            const cardNum = document.createElement("span");
+            const del = document.createElement("img");
+            const card = document.createElement("div");
+            const row = document.createElement("div");
+            const col1 = document.createElement("div");
+            const term = document.createElement("textarea");
+            const col2 = document.createElement("div");
+            const definition = document.createElement("textarea");
+            //Flesh out Elements
+            card.classList.add("card");
+            cardHeader.classList.add("cardHeader");
+            cardNum.classList.add("cardNum");
+            del.classList.add("delete");
+            del.alt = "delete";
+            del.src = "../imgs/bin.png";
+            del.style.cursor = "pointer";
+            row.classList.add("row");
+            col1.classList.add("col");
+            term.classList.add("term");
+            term.rows = "2";
+            term.placeholder = "Term";
+            term.required = true;
+            term.name = `term${cards.length}`
+            col2.classList.add("col");
+            definition.classList.add("definition");
+            definition.placeholder = "Definition";
+            definition.rows = "2";
+            definition.name = `def${cards.length}`
+            definition.required =true;
+            //Assemble elements together
+            cardHeader.appendChild(cardNum);
+            cardHeader.appendChild(del);
+            col1.appendChild(term);
+            col2.appendChild(definition);
+            row.appendChild(col1);
+            row.appendChild(col2);
+            card.appendChild(cardHeader);
+            card.appendChild(row);
+        
+            //Append to form and cards.
+            cards.push(card);
+            cardNum.textContent = cards.length;
+            form.appendChild(card);
+        
+            //Delete Card Function
+            del.addEventListener('click', () => {
+                form.removeChild(card);
+                const index = cards.indexOf(card);
+                if (index > -1) {
+                    cards.splice(index, 1);
+                }
+                updateNums();
+            })
+        }
+        
+        
+        
+         
+        //Submit Function
+        //Create a new set, return {set# -> card# -> {term->def}}
+        function create(){
+            //If set is null, set it to 1, else increment it.
+            if(terms.length === 0 || definitions.length === 0 || title === ""){
+                alert('Add terms or definitions');
+            }
+            else{
+                if(localStorage.getItem('set#') === null){
+                    localStorage.setItem('set#', 1);
+                }
+                else{
+                    localStorage.setItem('set#', parseInt(localStorage.getItem('set#')) + 1);
+                }
+                let currentSet = localStorage.getItem('set#');
+                let newSet = [{'title':title.value}];
+                for(let i = 0; i < cards.length; i++){
+                let newPair = {}; 
+                newPair[terms[i].value] = definitions[i].value;
+                newSet.push(newPair);
+                }
+                localStorage.setItem(currentSet, JSON.stringify(newSet));
+            }
+        }
+        
+        
+        
+        addCardBtn.addEventListener('click', addCard);
+        createBtn.addEventListener('click',create);</script>
+</body>
+</html>

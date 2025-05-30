@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+
+    <title>Flashcards </title>
+</head>
+<style>
+    /* Global Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Layout and Design */
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    background-color: #3c0d0d; /* Deep maroon */
+    font-weight: 700;
+    z-index: 1;
+    height: 100vh;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+#headerText {
+    font-size: 36px;
+    align-self: center;
+}
+
+/* Header Image */
+#backImg {
+    justify-self: flex-start; 
+    margin-top: 36px;
+    margin-right: auto;
+    width: 35%;
+}
+
+/* Flashcard Content */
+#FCcontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#FC-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+}
+
+#FC {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+#front, #back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 48px;
+    border-radius: 2rem;
+    backface-visibility: hidden;
+    cursor: pointer;
+}
+
+#front {
+    background-color: #b22222; /* Firebrick */
+    color: white;
+    border: 1px solid #8b0000; /* Dark red */
+}
+
+#back {
+    transform: rotateY(180deg);
+    background-color: #800000; /* Maroon */
+    color: white;
+    border: 1px solid #3c0d0d; /* Deep maroon */
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    margin: 3rem;
+}
+
+.footer img {
+    transform: scale(0.3, 0.3);
+    transition: 0.3s;
+}
+
+.footer img:hover {
+    cursor: pointer;
+    transform: scale(0.4, 0.4);
+}
+
+/* Shuffle Button */
+#shuffle {
+    transform: translateY(10px) scale(0.4, 0.4);  
+    transition: transform 0.3s ease;
+}
+
+#shuffle:hover {
+    transform: translateY(10px) scale(0.5, 0.5);  
+}
+
+/* Row Content */
+.row .col:nth-of-type(3) {
+    display: flex;
+    align-items: center;
+}
+
+/* Count Box */
+#count {
+    background-color: #5e0c0c; /* Darker maroon */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #8b0000; /* Dark red */
+    border-radius: 1rem;
+    height: 64px;
+    width: 64px;
+    color: white;
+}
+
+/* Hover Effects */
+#front:hover, #back:hover {
+    background-color: #a52a2a; /* Reddish-brown */
+    border: 2px solid #b22222; /* Firebrick */
+    color: white;
+}
+
+.navbar {
+    background-color: #800000; /* Maroon */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Navbar Actions */
+.navbar .actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adds space between bell and message */
+    position: relative;
+}
+
+.navbar .actions i {
+    font-size: 24px;
+    position: relative;
+    cursor: pointer;
+    color: white;
+}
+
+/* Notification Badge */
+.navbar .actions .notification-badge {
+    position: absolute;
+    top: -5px; /* Adjusts position relative to icon */
+    right: -10px; /* Moves to the top-right corner */
+    background-color: red; /* Red notification circle */
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navbar .actions .message-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #fff; /* White notification circle */
+    color: #800000; /* Maroon text for the count */
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Hover Effects */
+.navbar .actions i:hover {
+    color: #ffd7d9; /* Light pink on hover */
+}
+
+</style>
+<body>
+    <div class="navbar">
+        <span class="back-toggle" id="back-toggle"><i class="fas fa-arrow-left"></i></span>
+        <h1><i class="fas fa-school"></i> FlashCards</h1>
+        <div class="actions">
+            <!-- Notification Bell -->
+            <i class="fas fa-bell">
+                <span class="notification-badge">3</span>
+            </i>
+            <!-- Message Icon -->
+            <i class="fas fa-envelope">
+                <span class="message-badge">1</span>
+            </i>
+        </div>
+    </div>
+    <nav id = "header"> 
+        <a href="flashcardshome.html" id = "backA"> <img src="../imgs/back.png" alt="" id = "backImg"></a>
+        <div></div>
+        <div class="right"></div>
+    </nav>
+    <div class="container" id = "FCcontent">
+        <h1 id = "headerText"></h1>
+        <div id="FC-container">
+            <div id="FC">
+                <div id = "front"></div>
+                <div id = "back"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="row">
+                <div class="col">
+                    <img src="../imgs/reset.png" alt="" id ="reset">
+                </div>
+                <div class="col">
+                    <img src="../imgs/back.png" alt="" id = "goBack">
+                </div>
+                <div class="col">
+                    <span id = 'count'><span id = "current"></span><span id = "total"></span></span>
+                </div>
+                <div class="col">
+                    <img src="../imgs/forward.png" alt="" id ="goForward">
+                </div>
+                <div class="col">
+                    <img src="../imgs/shuffle.png" alt="" id = "shuffle">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cardContainer = document.querySelector("#FC");
+let front = document.querySelector("#front");
+let back = document.querySelector("#back");
+const resetBtn = document.querySelector('#reset');
+const backBtn = document.querySelector('#goBack');
+const forwardBtn = document.querySelector('#goForward');
+const shuffleBtn = document.querySelector('#shuffle');
+const title = document.querySelector("#headerText");
+const count = document.querySelector('#current');
+const total = document.querySelector('#total');
+let currentSide = "front"; //or 'back'.
+let currentCard = 0;
+let cards = JSON.parse(localStorage.getItem('cards'));
+let currentSet = localStorage.getItem('currentSet');
+title.textContent = localStorage.getItem('currentTitle');
+
+
+//This function update flashcard.html
+function loadFlashCards(){
+    
+    let term =  Object.keys(cards[currentCard])[0];
+    let definition = cards[currentCard][term];
+    front.textContent = term;
+    back.textContent = definition;
+    count.textContent = currentCard + 1 +'/';
+    total.textContent =  cards.length;
+}
+//Flashcard functions.
+function flip(){
+    if(currentSide == 'front'){
+        currentSide = 'back'
+        cardContainer.style.transform = "rotateY(180deg)";       
+    }
+    else{
+        currentSide = 'front';
+        cardContainer.style.transform = "rotateY(0deg)";
+    }
+}
+
+function reset(){
+    currentCard = 0;
+    currentSide = "front";
+    loadFlashCards();
+}
+
+function goBack(){
+    if(currentCard > 0){
+        currentCard -=1;
+        if(currentSide === "back"){
+            flip();
+        }
+        loadFlashCards();
+    }
+}
+function goForward(){
+    if(currentCard < cards.length - 1){
+        currentCard +=1;
+        if(currentSide === "back"){
+            flip();
+        }
+        loadFlashCards();
+    }
+}
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+    return array;
+}
+
+resetBtn.addEventListener('click', reset);
+backBtn.addEventListener('click',goBack);
+forwardBtn.addEventListener('click', goForward);
+shuffleBtn.addEventListener('click', () => {
+    cards = shuffle(cards);
+    reset();
+});
+cardContainer.addEventListener('click',flip);
+
+window.addEventListener("keydown", function(event) {
+    if (event.defaultPrevented) {
+      return;
+    }
+    else if (event.code === "Space"){
+        flip();
+    } else if (event.code === "ArrowLeft"){
+        goBack();
+    } else if (event.code === "ArrowRight"){
+        goForward();
+    }
+    event.preventDefault();
+  }, true);
+
+
+
+loadFlashCards();
+    </script>
+</body>

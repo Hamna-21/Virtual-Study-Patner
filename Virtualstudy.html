@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Partner</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            color: #ffffff;
+            background-color: #800000; /* Dark red background */
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #4d0000; /* Darker shade of red */
+            color: #ffffff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            margin: 0 15px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .navbar a:hover {
+            color: #ff6666; /* Lighter red for hover effect */
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(
+                    rgba(0, 0, 0, 0.7),
+                    rgba(0, 0, 0, 0.7)
+                ),
+                url('https://t4.ftcdn.net/jpg/03/23/98/31/360_F_323983192_KaSkDeNMEOKdLPu7ojU2XteVDEi373EI.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff; /* White text */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ff9999; /* Light red accent */
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            color: #ffd1d1; /* Soft pink for text */
+        }
+
+        .cta-btn {
+            padding: 15px 30px;
+            background-color: #ff4d4d; /* Bright red */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #cc0000; /* Darker red */
+        }
+
+        /* Features Section */
+        .features {
+            position: relative;
+            padding: 85px 50px;
+            color: #ffffff;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: rgba(0, 0, 0, 0.7); /* Dark overlay for text visibility */
+        }
+
+        .features video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .features p {
+            color: #ffb3b3; /* Light pink */
+            margin-bottom: 40px;
+        }
+
+        .feature-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            width: 300px;
+            background: #660000; /* Medium red */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-item img {
+            width: 60px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: #ff9999; /* Light red accent */
+        }
+
+        /* Footer */
+        .footer {
+            background: #4d0000; /* Darker red */
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">Study Partner</div>
+        <nav class="nav-links">
+            <a href="Virtualstudy.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="Courses.html">Courses</a>
+            <a href="Login.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Empowering Your Learning Journey</h1>
+        <p>Welcome to Study Partner – the ultimate platform for personalized learning and collaborative study. Achieve your goals with AI-powered tools and resources.</p>
+        <button class="cta-btn">Get Started</button>
+    </section>
+
+    <!-- Features Section with Background Video -->
+    <section class="features">
+        <video autoplay muted loop>
+            <source src="3579405647-preview.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h2>Why Choose Us?</h2>
+        <p>Discover the features that make Study Partner the ultimate choice for online learning.</p>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <img src="https://img.icons8.com/?size=48&id=13203&format=png" alt="Feature">
+                <h3>Classrooms</h3>
+                <p>Join live sessions with experienced instructors and peers in an interactive environment.</p>
+            </div>
+            <div class="feature-item">
+                <img src="https://img.icons8.com/?size=50&id=w9AYMVljw62Z&format=png" alt="Feature">
+                <h3>Progress Tracking</h3>
+                <p>Monitor your learning progress with detailed analytics and insights.</p>
+            </div>
+            <div class="feature-item">
+                <img src="https://ouch-cdn2.icons8.com/89_l3BqxduMGQaF8bXyqVAZU2Oowji3B1WKYjF6xpYk/rs:fit:368:368/extend:false/wm:1:re:0:0:0.8/wmid:ouch2/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvOTE1/Lzg1YjA4ZjFlLTk5/ZjktNDQ1NS1hMzFl/LWYwNTg3OGI3ZThh/YS5wbmc.png" alt="Feature">
+                <h3>AI Study Assistance</h3>
+                <p>Get personalized recommendations to focus on the topics that matter most.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Study Partner. All rights reserved.</p>
+    </footer>
+</body>
+</html>

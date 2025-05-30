@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources</title>
+    
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f3f3;
+            color: #333;
+        }
+
+        header {
+            background-color: #800000;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .material-box {
+            width: 30%;
+            background-color: #fff5f5;
+            border: 1px solid #e6cccc;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .material-box h3 {
+            background-color: #800000;
+            color: white;
+            margin: 0;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .material-box iframe {
+            width: 100%;
+            height: 180px;
+            border: none;
+        }
+
+        .material-box ul {
+            list-style: none;
+            margin: 10px;
+            padding: 0;
+        }
+
+        .material-box ul li {
+            margin: 5px 0;
+        }
+
+        .material-box ul li a {
+            color: #b80000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .material-box ul li a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #800000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #ffd5d5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* New Section Styling */
+        .resource-section {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fdf1f1;
+            border: 1px solid #e6cccc;
+            border-radius: 8px;
+        }
+
+        .resource-section h3 {
+            color: #800000;
+            margin-bottom: 10px;
+        }
+
+        .resource-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-section ul li {
+            margin: 8px 0;
+        }
+
+        .resource-section ul li a {
+            color: #b80000;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .resource-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .material-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1><i class="fas fa-book-open"></i> Learning Resources</h1>
+    </header>
+
+    <main>
+        <!-- Material Box 1 -->
+        <div class="material-box">
+            <h3>Organic Chemistry</h3>
+            <iframe src="https://www.youtube.com/embed/example1" title="Organic Chemistry Video"></iframe>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=example1" target="_blank">Watch on YouTube</a></li>
+                <li><a href="materials/organic_chemistry_notes.pdf" download>Download Notes (PDF)</a></li>
+            </ul>
+        </div>
+
+        <!-- Material Box 2 -->
+        <div class="material-box">
+            <h3>Math Concepts</h3>
+            <iframe src="https://www.youtube.com/embed/example2" title="Math Concepts Video"></iframe>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=example2" target="_blank">Watch on YouTube</a></li>
+                <li><a href="materials/math_guide.pdf" download>Download Guide (PDF)</a></li>
+            </ul>
+        </div>
+
+        <!-- Material Box 3 -->
+        <div class="material-box">
+            <h3>Programming Basics</h3>
+            <iframe src="https://www.youtube.com/embed/example3" title="Programming Basics Video"></iframe>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=example3" target="_blank">Watch on YouTube</a></li>
+                <li><a href="materials/programming_basics_notes.pdf" download>Download Notes (PDF)</a></li>
+            </ul>
+        </div>
+
+        <!-- New Section: Books -->
+        <div class="resource-section">
+            <h3>Recommended Books</h3>
+            <ul>
+                <li><a href="resources/organic_chemistry_book.pdf" download>Organic Chemistry Book (PDF)</a></li>
+                <li><a href="resources/algebra_fundamentals.pdf" download>Algebra Fundamentals (PDF)</a></li>
+                <li><a href="resources/python_guide.pdf" download>Python Programming Guide (PDF)</a></li>
+            </ul>
+        </div>
+
+        <!-- New Section: Additional Notes -->
+        <div class="resource-section">
+            <h3>Additional Notes</h3>
+            <ul>
+                <li><a href="resources/advanced_organic_notes.pdf" download>Advanced Organic Chemistry Notes</a></li>
+                <li><a href="resources/statistics_guide.pdf" download>Statistics Guide</a></li>
+                <li><a href="resources/physics_basics.pdf" download>Physics Basics Notes</a></li>
+            </ul>
+        </div>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Virtual Study Resources | Built with ❤️ for Lifelong Learning</p>
+        <p>Contact us: <a href="mailto:support@virtualstudy.com">support@virtualstudy.com</a></p>
+        <p>
+            Follow us on 
+            <a href="https://twitter.com/" target="_blank">Twitter</a> | 
+            <a href="https://www.facebook.com/" target="_blank">Facebook</a> | 
+            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features | Study Partner</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+   <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #800000; /* Maroon background */
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #5B0000; /* Darker maroon for navbar */
+            color: #f1f1f1;
+        }
+
+        .navbar a {
+            margin: 0 15px;
+            color: #f1f1f1;
+            font-weight: 500;
+        }
+
+        .navbar a:hover {
+            color: #00FFFF; /* Light cyan hover effect */
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f1f1f1;
+        }
+
+        .features p {
+            color: #cccccc;
+            margin-bottom: 40px;
+        }
+
+        /* Feature Boxes */
+        .feature-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            width: 280px;
+            background: #660000; /* Slightly lighter maroon for feature boxes */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: #ec8815; /* Light cyan for feature headings */
+        }
+
+        .feature-item p {
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #f5c21b; /* Light cyan for icons */
+        }
+
+        /* Footer */
+        .footer {
+            background: #5B0000;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">Study Partner</div>
+        <nav class="nav-links">
+            <a href="Virtualstudy.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="Courses.html">Courses</a>
+            <a href="Login.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Explore Our Features</h2>
+        <p>Learn how Study Partner empowers your learning experience with these cutting-edge tools.</p>
+        <div class="feature-grid">
+            <!-- Feature 1: Study Profiles -->
+            <div class="feature-item">
+                <i class="fas fa-user"></i>
+                <h3>Create and Manage Study Profiles</h3>
+                <p>Personalize your study journey with custom profiles to track progress and set goals.</p>
+            </div>
+
+            <!-- Feature 2: Study Scheduler -->
+            <div class="feature-item">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Study Scheduler</h3>
+                <p>Stay organized with a schedule tailored to your study routine.</p>
+            </div>
+
+            <!-- Feature 3: Progress Tracker -->
+            <div class="feature-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>Study Progress Tracker</h3>
+                <p>Track your learning progress and milestones with detailed insights.</p>
+            </div>
+
+            <!-- Feature 4: Flashcard System -->
+            <div class="feature-item">
+                <i class="fas fa-clipboard-list"></i>
+                <h3>Flashcard System</h3>
+                <p>Use flashcards to strengthen memory retention and enhance learning.</p>
+            </div>
+
+            <!-- Feature 5: Collaborative Features -->
+            <div class="feature-item">
+                <i class="fas fa-users"></i>
+                <h3>Collaborative Features</h3>
+                <p>Work with peers, share study materials, and collaborate on projects.</p>
+            </div>
+
+            <!-- Feature 6: Notifications and Reminders -->
+            <div class="feature-item">
+                <i class="fas fa-bell"></i>
+                <h3>Notifications and Reminders</h3>
+                <p>Get timely reminders for study sessions and important deadlines.</p>
+            </div>
+
+            <!-- Feature 7: Notes Section -->
+            <div class="feature-item">
+                <i class="fas fa-sticky-note"></i>
+                <h3>Notes Section</h3>
+                <p>Store, organize, and access your study notes easily.</p>
+            </div>
+
+            <!-- Feature 8: AI Assistant -->
+            <div class="feature-item">
+                <i class="fas fa-robot"></i>
+                <h3>AI Study Assistant</h3>
+                <p>Get personalized learning recommendations from our AI-powered assistant.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Study Partner. All rights reserved.</p>
+    </footer>
+</body>
+</html>

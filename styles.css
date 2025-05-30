@@ -1,0 +1,832 @@
+/* General Body Styling */
+body {
+    font-family: 'Roboto', 'Tangerine', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f7f9fc; /* Light grey for clean look */
+    color: #333;
+}
+
+/* Navbar */
+/* Navbar */
+.navbar {
+    background-color: #800000; /* Maroon */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Navbar Actions */
+.navbar .actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adds space between bell and message */
+    position: relative;
+}
+
+.navbar .actions i {
+    font-size: 24px;
+    position: relative;
+    cursor: pointer;
+    color: white;
+}
+
+/* Notification Badge */
+.navbar .actions .notification-badge {
+    position: absolute;
+    top: -5px; /* Adjusts position relative to icon */
+    right: -10px; /* Moves to the top-right corner */
+    background-color: red; /* Red notification circle */
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navbar .actions .message-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #fff; /* White notification circle */
+    color: #800000; /* Maroon text for the count */
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Hover Effects */
+.navbar .actions i:hover {
+    color: #ffd7d9; /* Light pink on hover */
+}
+
+/* Material Icons */
+.material-symbols-sharp {
+    font-family: 'Material Symbols Sharp';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    white-space: nowrap;
+    direction: ltr;
+}
+
+/* Main Layout */
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+    gap: 1.8rem;
+    margin: 0 auto;
+    grid-template-columns: 14rem auto 14rem;
+
+}
+
+    
+/* Links */
+a {
+    color: #333; /* Default text color */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    background-color: #ffd7d9; /* Light pink hover effect */
+    border-radius: 5px;
+}
+
+/* Sidebar */
+aside {
+    background-color: #ffffff; /* Clean white background */
+    color: #333; /* Neutral text color */
+    height: 100%; /* Full height for sidebar */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem ;
+    left: -250px; /* Initially hide the sidebar off-screen */
+    top: 0;
+    box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+/* When the sidebar is active (visible), move it to the left */
+aside.active {
+    left: 0; /* Show the sidebar */
+}
+.menu-toggle {
+    cursor: pointer;
+    font-size: 20px;
+}
+aside.hidden {
+    transform: translateX(-100%);
+}
+/* Sidebar close button */
+.close {
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+}
+aside .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+aside .logo h2 {
+    font-size: 1.5rem;
+    color: #800000; /* Maroon logo text */
+}
+
+aside .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+aside .sidebar a {
+    background: linear-gradient(90deg, #ffffff, #f7f7f7);
+/* Subtle gradient background */
+    color: #333; /* Neutral text color */
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.8rem 1rem;
+    
+    border-radius: 10px;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+aside .sidebar a:hover {
+    background-color: #800000; /* Highlight maroon on hover */
+    color: rgb(243, 121, 121); /* White text for contrast on hover */
+     margin-left: 0;
+     border-left: 2px solid brown;
+
+}
+
+aside .sidebar span.material-symbols-sharp {
+    color: #800000; /* Maroon icons */
+    font-size: 20px;
+}
+.close {
+    cursor: pointer;
+    text-align: right;
+    padding: 10px 20px;
+}
+.video-icon {
+    width: 75px; /* Set width to small size */
+    height: 75px; /* Set height to small size */
+    object-fit: cover; /* Ensures video maintains aspect ratio */
+    vertical-align: middle; /* Aligns video with text */
+    border-radius: 50%; /* Optional: make it circular */
+    border: 2px solid #ccc; /* Optional: add a border for style */
+  }
+  h1 {
+    display: flex;
+    align-items: center; /* Aligns video and text */
+    gap: 10px; /* Adds spacing between the video and text */
+  }
+  
+  .main-left{
+    margin-bottom: 5rem;
+   width: 90%;
+    max-width: 600px;
+    background-color: #fcfbfbf3;
+    border-radius: 8px; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form Container Styling */
+  .todo-container {
+    margin: 2rem auto;
+    text-align: center; /* Center-aligns items in smaller containers */
+}
+/* General Form Styles */
+.todo-form {
+    display: flex;
+    grid-template-columns: auto auto auto; /* Input, Button, Dropdown */
+    align-items: center;
+    gap: 1rem; /* Space between elements */
+    margin: 0%rem auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Input Field */
+.todo-input {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #800000;
+    border-radius: 2rem;
+    outline: none;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todo-input:focus {
+    border-color: #ff6347; /* Highlight on focus */
+    box-shadow: 0 4px 8px rgba(255, 99, 71, 0.3);
+}
+
+/* Add Button */
+.todo-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #800000;
+    color: #fff;
+    border: 2px solid #800000;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.todo-button:hover {
+    background-color: #b22222;
+    transform: scale(1.05);
+}
+
+/* Dropdown Select */
+.filter-todo {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #800000;
+    border-radius: 2rem;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    justify-self: flex-end; /* Align to the right in the grid */
+}
+
+.filter-todo:hover {
+    background-color: #ffd7d9; /* Light pink on hover */
+    border-color: #b22222;
+}
+
+/* To-Do List Container */
+.todo-container {
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 600px;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Individual To-Do Item */
+.todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.todo.slide {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.todo-item {
+    font-size: 1.2rem;
+    flex: 1;
+}
+
+.todo.completed .todo-item {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+/* Complete and Trash Buttons */
+.complete-btn {
+    background: none;
+    border: none;
+    color: green;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.trash-btn {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .todo-form {
+        grid-template-columns: 1fr; /* Stack all elements vertically */
+    }
+
+    .filter-todo {
+        justify-self: stretch; /* Make dropdown full-width on small screens */
+    }
+}
+
+.progress {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-left {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(196, 118, 118, 0.1);
+}
+
+/* Background Circle */
+.background-circle {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 12;
+}
+
+/* Progress Circle */
+.progress-circle {
+    fill: none;
+    stroke: maroon;
+    stroke-width: 12;
+    stroke-dasharray: 440; /* Circumference of the circle */
+    stroke-dashoffset: 242; /* Adjust for 45% progress */
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 0.4s ease;
+}
+
+/* Number inside the circle */
+.number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.number h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.number img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+/* Date Input Styling */
+#date-picker {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid #800000; /* Maroon border */
+    border-radius: 2rem;
+    background-color: #fff;
+    color: #333; /* Text color for the input */
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#date-picker:focus {
+    border-color: #ff6347; /* Highlight on focus */
+    box-shadow: 0 4px 8px rgba(255, 99, 71, 0.3);
+}
+
+
+.timercontainer {
+    margin: 50px auto;
+    margin-top: 10rem;
+    border-radius: 10px;
+    background-color: #f7f2f2;
+    margin-left: 5rem;
+}
+.right h1{
+    color: #141414;
+}
+
+.circle-timer {
+    width: 150px;
+    height: 150px;
+    border: 8px solid rgb(158, 2, 2);
+    border-radius: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    background: #ffffff;
+    color: #332a2b;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    background-color: rgb(165, 42, 42);
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 05px 10px;
+    border-radius: 20%;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    background-color: #600000;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 300px;
+}
+
+.close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+}
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+    margin-left: 10px;
+}
+
+.delete-btn i {
+    font-size: 1.2em;
+}
+
+.delete-btn:hover i {
+    color: darkred;
+}
+
+.close-btn {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="number"] {
+    width: 80%;
+    padding: 5px;
+    margin: 10px 0;
+}
+.user-profile {
+    width: 300px;
+    margin: 20px auto;
+    padding: 5px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    background-color: white;
+    margin-bottom: 32rem;
+    margin-left: 5rem;
+}
+
+.profile-header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.profile-details p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgb(129, 26, 26);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: rgb(131, 35, 35);
+}
+
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Popup Modal Input Styling */
+textarea, input[type="text"] {
+    width: 50%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #012409;
+}
+
+
+/* Back Button */
+.back-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.back-toggle:hover {
+    color: #ff6347; /* Change color on hover */
+}
+/* General Container */
+.main-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem auto;
+    padding: 1rem;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Flashcard and Tools Sections */
+.flashcard-section, 
+.tools-section {
+    flex: 1;
+    margin: 0 1rem;
+}
+
+/* Flashcard Section Header */
+.flashcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.flashcard-header h2 {
+    font-size: 1.8rem;
+    color: #4a1c1c; /* Deep maroon */
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: #800000; /* Maroon */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #b30000; /* Lighter maroon */
+}
+
+/* Flashcard Container */
+.flashcard-container {
+    background-color: #fff0f0; /* Light maroon background */
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(128, 0, 0, 0.2);
+    min-height: 200px;
+}
+
+/* Tools Section */
+.tools-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.tool {
+    background-color: #fff0f0; /* Light maroon background */
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(128, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.tool i {
+    font-size: 1rem;
+    color: #800000; /* Maroon icon */
+}
+
+.tool h3 {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #4a1c1c; /* Deep maroon text */
+}
+
+.tool:hover {
+    background-color: #ffe5e5; /* Hover effect */
+    box-shadow: 0 0 15px rgba(128, 0, 0, 0.3);
+}
+
+/* Footer */
+footer.footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #800000; /* Maroon */
+    color: #fff;
+    margin-top: 2rem;
+    border-top: 2px solid #4a1c1c;
+}
+
+/* Search Bar */
+.search-section {
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+}
+
+#search-bar {
+    width: 60%;
+    padding: 0.5rem;
+    border: 2px solid #800000;
+    border-radius: 5px 0 0 5px;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+}
+
+#search-btn {
+   padding: 0.5rem 0.5rem;
+    border: none;
+    background-color: #800000;
+    color: white;
+    font-size: 1rem;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#search-btn:hover {
+    background-color: #b30000;
+}
+
+/* Statistics Section */
+.statistics {
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff0f0;
+    padding: 1rem;
+    margin: 1rem auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(128, 0, 0, 0.2);
+}
+
+.stat h3 {
+    color: #800000;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+/* Progress Tracker */
+.progress-tracker {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.progress-bar {
+    width: 80%;
+    height: 20px;
+    background-color: #ffe5e5;
+    border-radius: 10px;
+    margin: 0.5rem auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.tprogress {
+    height: 100%;
+    background-color: #500505;
+    transition: width 0.3s;
+}
+
+
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #800000;
+}
+

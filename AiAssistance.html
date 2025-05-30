@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+    <title>AI Assistant Chat</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: #800000; /* Maroon Red Background */
+            height: 100vh;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        #header {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 30px;
+            font-weight: bold;
+            padding: 10px;
+            color: white;
+        }
+
+        /* Ask me anything Text */
+        #ask-box {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        /* Chat Container */
+        #chat-box {
+            width: 100%;
+            max-width: 600px;
+            height: 60vh;
+            overflow-y: auto;
+            padding: 20px;
+            margin-bottom: 10px;
+            background-color: transparent; /* No white box background */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow: auto;
+        }
+
+        /* Message Styling */
+        .message {
+            padding: 12px 18px;
+            border-radius: 18px;
+            max-width: 75%;
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.5;
+            word-wrap: break-word;
+            position: relative;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        /* User Message Styling (Right-aligned with Maroon color) */
+        .message.user {
+            background-color: #c30000; /* Darker Maroon */
+            color: white;
+            align-self: flex-end;
+            border-radius: 18px 18px 0 18px;
+        }
+
+        .message.user::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -12px;
+            width: 0;
+            height: 0;
+            border: 12px solid transparent;
+            border-left-color: #c30000;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+        }
+
+        /* AI Message Styling (Left-aligned with Light Gray color) */
+        .message.ai {
+            background-color: #f5f5f5; /* Light Gray */
+            color: #333;
+            align-self: flex-start;
+            border-radius: 18px 18px 18px 0;
+        }
+
+        .message.ai::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -12px;
+            width: 0;
+            height: 0;
+            border: 12px solid transparent;
+            border-right-color: #f5f5f5;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+        }
+
+        /* Input Section (Question input above the messages) */
+        #input-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #question {
+            width: 90%;
+            padding: 15px;
+            border-radius: 20px;
+            border: none;
+            background-color: #ffffff;
+            color: #333;
+            font-size: 18px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+            outline: none;
+            margin-bottom: 10px;
+        }
+
+        #question:focus {
+            border: 2px solid #c30000; /* Dark Maroon Focus */
+        }
+
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            background-color: #c30000;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #b20000; /* Slightly lighter maroon */
+        }
+
+        /* Scrollbar Styling */
+        #chat-box::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #chat-box::-webkit-scrollbar-thumb {
+            background-color: #c30000;
+            border-radius: 10px;
+        }
+
+        #chat-box::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header with AI Assistant Title -->
+    <div id="header">
+        <h1>AI Assistant</h1>
+    </div>
+
+    <!-- Ask me anything Text -->
+    <div id="ask-box">
+        <p>Type your question here</p>
+    </div>
+
+    <!-- Input Container for the Question -->
+    <div id="input-container">
+        <input type="text" id="question" placeholder="Type your question..." />
+        <button onclick="askQuestion()">Send</button>
+    </div>
+
+    <!-- Chat Box for Messages -->
+    <div id="chat-box"></div>
+
+    <script>
+        async function askQuestion() {
+            const questionInput = document.getElementById('question');
+            const userMessage = questionInput.value.trim();
+
+            if (!userMessage) {
+                alert('Please type a message before sending.');
+                return;
+            }
+
+            // Add user message to the chat UI
+            const chatBox = document.getElementById('chat-box');
+            const userMessageElement = document.createElement('div');
+            userMessageElement.classList.add('chat-box');
+            userMessageElement.innerHTML = `<div class="message user">${userMessage}</div>`;
+            chatBox.appendChild(userMessageElement);
+
+            // Clear the input field
+            questionInput.value = '';
+
+            try {
+                // Send user message to the backend
+                const response = await fetch('http://localhost:5000/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: userMessage }),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to get a response from the server');
+                }
+
+                const data = await response.json();
+                const aiResponse = data.answer;
+
+                // Add AI response to the chat UI
+                const aiMessageElement = document.createElement('div');
+                aiMessageElement.classList.add('chat-box');
+                aiMessageElement.innerHTML = `<div class="message ai">${aiResponse}</div>`;
+                chatBox.appendChild(aiMessageElement);
+
+                // Scroll to the latest message
+                chatBox.scrollTop = chatBox.scrollHeight;
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>

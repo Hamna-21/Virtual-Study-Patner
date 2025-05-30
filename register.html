@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Study Partner</title>
+    <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon"> 
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Fullscreen video background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Send video behind all content */
+            overflow: hidden;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the video covers the screen */
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: rgba(91, 0, 0, 0.8); /* Semi-transparent maroon */
+            color: #f1f1f1;
+            position: fixed;
+            top: 0; /* Keeps navbar at the top */
+            width: 100%;
+            z-index: 10; /* Ensures navbar stays above video */
+        }
+
+        .navbar a {
+            margin: 0 15px;
+            color: #f1f1f1;
+            font-weight: 500;
+        }
+
+        .navbar a:hover {
+            color: #00FFFF; /* Light cyan hover effect */
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        /* Register Section */
+        .login-container {
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 5; /* Ensure it's above the video */
+        }
+
+        .login-container h2 {
+            color: #800000; /* Dark Maroon text */
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            background-color: #fff;
+            color: #800000; /* Dark Maroon for text */
+            border: 1px solid #800000; /* Maroon border */
+        }
+
+        .login-container input[type="submit"] {
+            background-color: #ff6666; /* Light red color for button */
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #ff4d4d; /* Slightly darker red on hover */
+        }
+
+        .login-container p {
+            color: #cccccc;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        .login-container p a {
+            color: #800000; /* Dark Maroon for links */
+            text-decoration: none;
+        }
+
+        .login-container p a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="3592642805-preview.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">Study Partner</div>
+        <nav class="nav-links">
+            <a href="Virtualstudy.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="Courses.html">Courses</a>
+            <a href="Login.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- Registration Section -->
+    <div class="login-container">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <script>
+        const registerForm = document.getElementById('registerForm');
+
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('http://localhost:5000/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+
+            if (response.ok) {
+                alert('Registration successful!');
+                window.location.href = 'StudentDashboard.html'; // Redirect to student dashboard after registration
+            } else {
+                const errorMessage = await response.text();
+                alert(`Registration failed: ${errorMessage}`);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources</title>
+  <link rel="icon" href="https://tse3.mm.bing.net/th?id=OIP.Wg8VkjMar1bJVE3VuPl0tgAAAA&pid=Api&P=0&h=220" type="image/x-icon">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f3f3;
+      color: #333;
+    }
+
+    header {
+      background-color: #800000;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    main {
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .material-box {
+      width: 30%;
+      background-color: #fff5f5;
+      border: 1px solid #e6cccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .material-box h3 {
+      background-color: #800000;
+      color: white;
+      margin: 0;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    .material-box iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+
+    .material-box ul {
+      list-style: none;
+      margin: 10px;
+      padding: 0;
+    }
+
+    .material-box ul li {
+      margin: 5px 0;
+    }
+
+    .material-box ul li a {
+      color: #b80000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .material-box ul li a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #800000;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #ffd5d5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* New Section Styling */
+    .resource-section {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #fdf1f1;
+      border: 1px solid #e6cccc;
+      border-radius: 8px;
+    }
+
+    .resource-section h3 {
+      color: #800000;
+      margin-bottom: 10px;
+    }
+
+    .resource-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .resource-section ul li {
+      margin: 8px 0;
+    }
+
+    .resource-section ul li a {
+      color: #b80000;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .resource-section ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Media Query */
+    @media (max-width: 768px) {
+      .material-box {
+        width: 100%;
+      }
+    }
+
+    /* Search Bar Styling */
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #800000;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #b80000;
+    }
+
+    /* New Styling for Horizontal Video Layout */
+   #videoResults {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.video-card {
+  width: 30%;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1><i class="fas fa-search"></i> Resources</h1>
+  </header>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" id="searchQuery" placeholder="Enter search term">
+    <button onclick="searchResources()">Search</button>
+  </div>
+
+  <!-- Video Results -->
+  <main>
+    <div id="videosSection" class="material-box">
+      <h3>Videos</h3>
+      <div id="videoResults"></div>
+    </div>
+
+    <!-- Resources Section -->
+    <div id="resourcesSection" class="resource-section">
+      <h3>Other Resources</h3>
+      <div id="resourceResults"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Virtual Study Resources | Built with ❤️ for Lifelong Learning</p>
+    <p>Contact us: <a href="mailto:support@virtualstudy.com">support@virtualstudy.com</a></p>
+    <p>
+      Follow us on 
+      <a href="https://twitter.com/" target="_blank">Twitter</a> | 
+      <a href="https://www.facebook.com/" target="_blank">Facebook</a> | 
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    const youtubeApiKey = 'AIzaSyDp1-BvhzhGJ8eKS4mM_6exGVN81luKH8g';  // Replace with your YouTube API Key
+    const googleApiKey = 'AIzaSyDp1-BvhzhGJ8eKS4mM_6exGVN81luKH8g';  // Replace with your Google Custom Search API Key
+    const searchEngineId = 'YOUR_SEARCH_ENGINE_ID';  // Replace with your Custom Search Engine ID
+
+    function searchResources() {
+      const query = document.getElementById('searchQuery').value;
+
+      // Clear previous results
+      document.getElementById('videoResults').innerHTML = '';
+      document.getElementById('resourceResults').innerHTML = '';
+
+      // Search YouTube
+      searchYouTube(query);
+
+      // Search Google Custom Search
+      searchGoogle(query);
+    }
+
+    function searchYouTube(query) {
+      const youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${query}&key=${youtubeApiKey}&part=snippet&type=video`;
+
+      fetch(youtubeUrl)
+        .then(response => response.json())
+        .then(data => {
+          displayVideoResults(data.items);
+        })
+        .catch(error => {
+          console.error('Error fetching YouTube data:', error);
+        });
+    }
+
+    function displayVideoResults(videos) {
+      const videoContainer = document.getElementById('videoResults');
+      
+      if (videos && videos.length > 0) {
+        videos.forEach(video => {
+          const videoElement = document.createElement('div');
+          videoElement.classList.add('video-card');
+
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://www.youtube.com/embed/${video.id.videoId}`;
+          iframe.frameBorder = 0;
+          iframe.allowFullscreen = true;
+
+          videoElement.appendChild(iframe);
+          videoContainer.appendChild(videoElement);
+        });
+      } else {
+        videoContainer.innerHTML = 'No videos found for your search.';
+      }
+    }
+
+    function searchGoogle(query) {
+      const googleUrl = `https://www.googleapis.com/customsearch/v1?q=${query}&key=${googleApiKey}&cx=${searchEngineId}`;
+
+      fetch(googleUrl)
+        .then(response => response.json())
+        .then(data => {
+          displayResourceResults(data.items);
+        })
+        .catch(error => {
+          console.error('Error fetching Google search data:', error);
+        });
+    }
+
+    function displayResourceResults(results) {
+      const resourceContainer = document.getElementById('resourceResults');
+
+      if (results && results.length > 0) {
+        results.forEach(result => {
+          const resultElement = document.createElement('div');
+          resultElement.classList.add('material-box');
+
+          const link = document.createElement('a');
+          link.href = result.link;
+          link.target = '_blank';
+          link.textContent = result.title;
+
+          resultElement.appendChild(link);
+          resourceContainer.appendChild(resultElement);
+        });
+      } else {
+        resourceContainer.innerHTML = 'No other resources found for your search.';
+      }
+    }
+    function displayResourceResults(results) {
+  const resourceContainer = document.getElementById('resourceResults');
+
+  // Simulate some random search results based on the query
+  const query = document.getElementById('searchQuery').value;
+  const fakeResults = [
+    { title: `Learn more about ${query} in Computer Science`, link: `https://example.com/${query}-learn-more` },
+    { title: `${query} Overview - A Comprehensive Guide`, link: `https://example.com/${query}-overview` },
+    { title: `Discover ${query} in Modern Technology`, link: `https://example.com/${query}-modern-tech` },
+    { title: `Everything You Need to Know about ${query}`, link: `https://example.com/${query}-complete-guide` },
+    { title: `The Importance of ${query} in Today's World`, link: `https://example.com/${query}-importance` }
+  ];
+
+  resourceContainer.innerHTML = ''; // Clear existing content
+
+  fakeResults.forEach(result => {
+    const resultElement = document.createElement('div');
+    resultElement.classList.add('material-box');
+
+    const link = document.createElement('a');
+    link.href = result.link;
+    link.target = '_blank';
+    link.textContent = result.title;
+
+    resultElement.appendChild(link);
+    resourceContainer.appendChild(resultElement);
+  });
+}
+
+  </script>
+
+</body>
+</html>
