@@ -21,6 +21,7 @@
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Node.js, Express.js
 - **APIs Used**: OpenAI API, Google Search API
+- ![Screenshot 2025-05-30 220328](https://github.com/user-attachments/assets/9809a139-e13f-40d5-904d-339557b0fd1c)
 ![Screenshot 2025-05-30 213525](https://github.com/user-attachments/assets/d4b3fd41-dd85-47bd-82e6-33e5d2149c85)
 ![Screenshot 2025-05-30 213804](https://github.com/user-attachments/assets/f1243945-5d4f-4859-b818-f7cc8ade0aa8)
 ![Screenshot 2025-05-30 213950](https://github.com/user-attachments/assets/7dc851da-1e31-49c8-aa47-b3f647c63f53)
